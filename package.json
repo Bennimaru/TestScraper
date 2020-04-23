@@ -1,0 +1,23 @@
+{
+  "name": "TestScraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bennimaru/TestScraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bennimaru/TestScraper/issues"
+  },
+  "homepage": "https://github.com/Bennimaru/TestScraper#readme",
+  "dependencies": {
+    "puppeteer": "^3.0.0"
+  }
+}
