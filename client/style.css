@@ -1,2 +1,10 @@
 .container {
+	display: flex;
+	background-color: red;
+}
+
+.card {
+	margin: 4rem;
+	padding: 4rem;
+	background-color: blue;
 }

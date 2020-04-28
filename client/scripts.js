@@ -4,14 +4,20 @@ function newElement(type, attributes = {}) {
         const value = attributes[attribute];
         if (attribute == "innerText") {
             element.innerText = value;
-        } else {
-            element.setAttribute(attribute.value);
+        }
+        else {
+            element.setAttribute(attribute, value);
         }
     }
     return element;
 }
 
-const container = document.querySelector(.container)
+const ctr = document.querySelector('.container')
 const card = newElement('div', { class: 'card' })
 
-container.appendChild(card)
+ctr.appendChild(card)
+
+function submitURL() {
+    const input = document.querySelector('.url-input').value
+
+}
