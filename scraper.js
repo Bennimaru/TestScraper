@@ -7,18 +7,25 @@ async function scrapeItem(url) {
 
     await page.goto(url)
 
-    const [itemPic] = await page.$x('//*[@id="mainSlide_02WC-000N-01HU6"]')
+    const [itemPic] = await page.$x('//*[@id="img"]')
     const src = await itemPic.getProperty('src')
     const srcText = await src.jsonValue()
 
-    const [itemName] = await page.$x('//*[@id="grpDescrip_2WC-000N-01HU6"]')
-    const name = await itemName.getProperty('innerHTML')
-    const title = await name.jsonValue()
+    const [itemName] = await page.$x('//*[@id="text-container"]')
+    const text = await itemName.getProperty('textContent')
+    const name = await text.jsonValue()
+    const trimName = await name.trim()
 
-    console.log({ srcText, title })
+    console.log({ trimName, srcText })
 
     browser.close()
+
+    return { trimName, srcText }
 }
 
-scrapeItem('https://www.newegg.com/lunar-white-asus-rog-zephyrus-g14-ga401iv-br9n6-gaming-entertainment/p/2WC-000N-01HU6?Description=asus%20g14&cm_re=asus_g14-_-2WC-000N-01HU6-_-Product&quicklink=true')
+scrapeItem('https://www.youtube.com/channel/UCUT8RoNBTJvwW1iErP6-b-A')
 
+
+module.exports = {
+    scrapeItem
+}
