@@ -4,7 +4,7 @@ const port = 3000
 
 const bodyParser = require('body-parser')
 const scraper = require('../scraper')
-
+const db = require('./db')
 
 app.use(bodyParser.json())
 app.use(function (req, res, next) {
@@ -19,8 +19,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 
 app.get('/creators', async (req, res) => {
-
-    const creators = [{ name: 'Theirry Henry', img: 'https://' }]
+    const creators = await db.getAllCreators()
 
     res.send(creators)
 })
@@ -28,5 +27,6 @@ app.get('/creators', async (req, res) => {
 app.post('/creators', async (req, res) => {
     const channelData = await scraper.scrapeItem(req.body.input)
     console.log({ channelData })
-    res.send('success')
+    const creators = await db.insertCreator(channelData.trimName, channelData.avatarURL, req.body.input)
+    res.send(creators)
 })

@@ -9,3 +9,5 @@ Lets expand on the basic web scraper previously built.
 Build a client facing side using vanilla JS.
 
 Rest API using node and express framework.
+
+Backend database using mySQL.
